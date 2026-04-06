@@ -17,6 +17,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="cart-btn" class="cart-btn">Cart (<span id="cart-count">0</span>)</a></li>
             </ul>
         </nav>
     </header>
@@ -41,33 +42,45 @@
         <div class="container">
             <h2>Our Premium Selection</h2>
             <div class="grid">
-                <!-- Product 1 -->
                 <div class="product-card" id="product-pepper">
                     <img src="images/black_pepper_1775451587809.png" alt="Premium Black Pepper">
                     <div class="product-info">
                         <h3>Idukki Black Pepper</h3>
-                        <p class="price">₹300 / 250g</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="price">₹300 <span class="base-qty">/ 250g</span></p>
+                        <select class="quantity-select">
+                            <option value="1|250g">250g</option>
+                            <option value="2|500g">500g</option>
+                            <option value="4|1kg">1kg</option>
+                        </select>
+                        <button class="add-to-cart" data-name="Idukki Black Pepper" data-price="300">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
                 <div class="product-card" id="product-cardamom">
                     <img src="images/green_cardamom_1775451851065.png" alt="Premium Green Cardamom">
                     <div class="product-info">
                         <h3>Idukki Green Cardamom</h3>
-                        <p class="price">₹750 / 250g</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="price">₹750 <span class="base-qty">/ 250g</span></p>
+                        <select class="quantity-select">
+                            <option value="1|250g">250g</option>
+                            <option value="2|500g">500g</option>
+                            <option value="4|1kg">1kg</option>
+                        </select>
+                        <button class="add-to-cart" data-name="Idukki Green Cardamom" data-price="750">Add to Cart</button>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
                 <div class="product-card" id="product-cloves">
                     <img src="images/cloves_1775451866425.png" alt="Premium Cloves">
                     <div class="product-info">
                         <h3>Aromatic Whole Cloves</h3>
-                        <p class="price">₹300 / 250g</p>
-                        <button class="add-to-cart">Add to Cart</button>
+                        <p class="price">₹300 <span class="base-qty">/ 250g</span></p>
+                        <select class="quantity-select">
+                            <option value="1|250g">250g</option>
+                            <option value="2|500g">500g</option>
+                            <option value="4|1kg">1kg</option>
+                        </select>
+                        <button class="add-to-cart" data-name="Aromatic Whole Cloves" data-price="300">Add to Cart</button>
                     </div>
                 </div>
 
@@ -91,6 +104,42 @@
             </div>
         </div>
     </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close-btn" id="close-cart">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items-list">
+                <!-- Cart items will be rendered here dynamically -->
+            </div>
+            <div class="cart-total">
+                <h3>Total: ₹<span id="cart-total-price">0</span></h3>
+            </div>
+            
+            <div class="checkout-section">
+                <h3>Checkout Details</h3>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="c-name">Full Name</label>
+                        <input type="text" id="c-name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-address">Full Address</label>
+                        <textarea id="c-address" required placeholder="Enter your full street address" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="c-pin">Pin Code</label>
+                        <input type="text" id="c-pin" required placeholder="e.g. 685501">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-mobile">Mobile Number (WhatsApp)</label>
+                        <input type="tel" id="c-mobile" required placeholder="e.g. 9847618036">
+                    </div>
+                    <button type="submit" class="checkout-btn">Proceed to WhatsApp Checkout</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
